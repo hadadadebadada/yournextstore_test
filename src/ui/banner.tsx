@@ -19,9 +19,7 @@ export const Banner = () => {
 			<div className="flex items-center justify-between gap-x-4">
 				<div className="mx-auto flex max-w-7xl items-center justify-between gap-x-4">
 					<div className="flex items-center gap-x-4">
-						<p className="text-center text-sm font-medium">
-							🎉 Your Next Store adds 3D product previews powered by Spline
-						</p>
+						<p className="text-center text-sm font-medium">🎉 Vertragsmarkt</p>
 						<YnsLink
 							href="/product/horizon-gaze-sunglasses"
 							className="flex-none rounded-full bg-indigo-500 px-3 py-1 text-sm font-semibold text-white shadow-sm hover:bg-indigo-600"
