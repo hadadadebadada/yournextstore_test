@@ -43,8 +43,8 @@ export function CommerceGPT() {
 	}, []);
 
 	return (
-		<div className="flex flex-col">
-			{/* <div className="bg-gradient-to-r from-orange-100 via-orange-200 to-red-300 px-4 py-3 text-indigo-900">
+		<div className="flex flex-col hidden">
+			<div className="bg-gradient-to-r from-orange-100 via-orange-200 to-red-300 px-4 py-3 text-indigo-900">
 				<div className="flex items-center justify-between gap-x-4">
 					<div className="mx-auto flex max-w-7xl items-center justify-between gap-x-4">
 						<div className="flex items-center gap-x-4">
@@ -180,7 +180,7 @@ export function CommerceGPT() {
 					className="fixed inset-0 bg-black bg-opacity-50 transition-opacity ease-in-out duration-300"
 					onClick={() => setIsOpen(false)}
 				/>
-			)} */}
+			)}
 		</div>
 	);
 }
