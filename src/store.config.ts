@@ -1,21 +1,25 @@
-import AccessoriesImage from "@/images/accessories.jpg";
-import ApparelImage from "@/images/apparel.jpg";
+// import AccessoriesImage from "@/images/accessories.jpg";
+// import ApparelImage from "@/images/apparel.jpg";
+
+import FitnessImage from "@/images/fitness.png";
+import MobileImage from "@/images/mobile.png";
 
 export const config = {
 	categories: [
-		{ name: "Apparel", slug: "apparel", image: ApparelImage },
-		{ name: "Accessories", slug: "accessories", image: AccessoriesImage },
+		{ name: "Mobil", slug: "mobil", image: MobileImage },
+		{ name: "Fitness", slug: "fitness", image: FitnessImage },
 	],
 
 	social: {
 		x: "https://x.com/yourstore",
 		facebook: "https://facebook.com/yourstore",
+		instagram: "https://www.instagram.com/botschmiede/",
 	},
 
 	contact: {
-		email: "support@yourstore.com",
-		phone: "+1 (555) 111-4567",
-		address: "123 Store Street, City, Country",
+		email: "info@vertragsmarkt.de",
+		phone: "+49 177 2266449",
+		address: "Gustav-Adolf-Straße 7 - 01219 Dresden",
 	},
 };
 

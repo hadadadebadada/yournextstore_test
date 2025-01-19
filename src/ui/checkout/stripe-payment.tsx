@@ -79,6 +79,7 @@ const PaymentForm = ({
 	const [isLinkAuthenticationReady, setIsLinkAuthenticationReady] = useState(false);
 	const [isAddressReady, setIsAddressReady] = useState(false);
 	const [isPaymentReady, setIsPaymentReady] = useState(false);
+	const [submitChecked, setSubmitChecked] = useState(false);
 	const [billingAddressValues, setBillingAddressValues] = useState<AddressSchema>({
 		name: "",
 		city: "",
@@ -343,23 +344,35 @@ const PaymentForm = ({
 				</Alert>
 			)}
 			{readyToRender && (
-				<Button
-					type="submit"
-					className="w-full rounded-full text-lg"
-					size="lg"
-					aria-disabled={isBillingAddressPending || isLoading || isTransitioning}
-					onClick={(e) => {
-						if (isBillingAddressPending || isLoading || isTransitioning) {
-							e.preventDefault();
-						}
-					}}
-				>
-					{isBillingAddressPending || isLoading || isTransitioning ? (
-						<Loader2 className="mr-2 h-4 w-4 animate-spin" />
-					) : (
-						t("payNowButton")
-					)}
-				</Button>
+				<div>
+					<label className="inline-flex items-center space-x-2">
+						<input
+							type="checkbox"
+							checked={submitChecked}
+							onChange={(e) => setSubmitChecked(e.target.checked)}
+						/>
+						<span>Ich akzeptiere alle Nutzerbedingungen und AGB. </span>
+					</label>
+
+					<Button
+						type="submit"
+						className="w-full rounded-full text-lg"
+						size="lg"
+						disabled={!submitChecked || isBillingAddressPending || isLoading || isTransitioning}
+						aria-disabled={!submitChecked || isBillingAddressPending || isLoading || isTransitioning}
+						onClick={(e) => {
+							if (isBillingAddressPending || isLoading || isTransitioning) {
+								e.preventDefault();
+							}
+						}}
+					>
+						{isBillingAddressPending || isLoading || isTransitioning ? (
+							<Loader2 className="mr-2 h-4 w-4 animate-spin" />
+						) : (
+							t("payNowButton")
+						)}
+					</Button>
+				</div>
 			)}
 		</form>
 	);

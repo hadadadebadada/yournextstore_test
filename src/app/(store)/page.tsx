@@ -1,5 +1,6 @@
 import { publicUrl } from "@/env.mjs";
 import { getTranslations } from "@/i18n/server";
+import ContractImage from "@/images/contract.png";
 import StoreConfig from "@/store.config";
 import { CategoryBox } from "@/ui/category-box";
 import { ProductList } from "@/ui/products/product-list";
@@ -7,7 +8,6 @@ import { YnsLink } from "@/ui/yns-link";
 import * as Commerce from "commerce-kit";
 import Image from "next/image";
 import type { Metadata } from "next/types";
-
 export const metadata = {
 	alternates: { canonical: publicUrl },
 } satisfies Metadata;
@@ -23,21 +23,39 @@ export default async function Home() {
 					<div className="max-w-md space-y-4">
 						<h2 className="text-balance text-3xl font-bold tracking-tight md:text-4xl">{t("hero.title")}</h2>
 						<p className="text-pretty text-neutral-600">{t("hero.description")}</p>
-						<YnsLink
-							className="inline-flex h-10 items-center justify-center rounded-full bg-neutral-900 px-6 font-medium text-neutral-50 transition-colors hover:bg-neutral-900/90 focus:outline-none focus:ring-1 focus:ring-neutral-950"
-							href={t("hero.link")}
-						>
-							{t("hero.action")}
-						</YnsLink>
+
+						{/* Flex container for the two links */}
+						<div className="flex items-center space-x-2">
+							<YnsLink
+								className="inline-flex h-10 items-center justify-center rounded-full 
+										bg-neutral-900 px-6 font-medium text-neutral-50 
+										transition-colors hover:bg-neutral-900/90 
+										focus:outline-none focus:ring-1 focus:ring-neutral-950"
+								href={t("hero.link")}
+							>
+								{t("hero.action")}
+							</YnsLink>
+							<YnsLink
+								className="inline-flex h-10 items-center justify-center rounded-full 
+										bg-neutral-50 px-6 font-medium text-neutral-900 
+										border border-black 
+										transition-colors hover:bg-neutral-50/90 
+										focus:outline-none focus:ring-1 focus:ring-neutral-950"
+								href="/category/sell"
+							>
+								Jetzt verkaufen
+							</YnsLink>
+						</div>
 					</div>
+
 					<Image
-						alt="Cup of Coffee"
+						alt="contract"
 						loading="eager"
 						priority={true}
 						className="rounded"
-						height={450}
-						width={450}
-						src="https://files.stripe.com/links/MDB8YWNjdF8xT3BaeG5GSmNWbVh6bURsfGZsX3Rlc3RfaDVvWXowdU9ZbWlobUIyaHpNc1hCeDM200NBzvUjqP"
+						height={250}
+						width={250}
+						src={ContractImage}
 						style={{
 							objectFit: "cover",
 						}}

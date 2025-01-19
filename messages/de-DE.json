@@ -30,9 +30,11 @@
 	"Global.deliveryEstimates.month": "{count, plural, =1 {# Monat} other {# Monate}}",
 	"Global.deliveryEstimates.week": "{count, plural, =1 {# Woche} other {# Wochen}}",
 	"Global.actions.shopNow": "Jetzt einkaufen",
-	"/.hero.title": "Entdecke unsere kuratierte Kollektion",
-	"/.hero.description": "Entdecke unsere sorgfältig ausgewählten Produkte für Dein Zuhause und Deinen Lifestyle.",
+	"/.hero.title": "Kaufe und Verkaufe Verträge aller Art",
+	"/.hero.description": "Möchtest du einen deiner Verträge verkaufen oder einen gebrauchten Vertrag kaufen?",
 	"/.hero.action": "Jetzt einkaufen",
+	"/.hero.sell": "Jetzt verkaufen",
+
 	"/.hero.link": "/category/accessories",
 	"/search.notFound.title": "Keine Ergebnisse für \"{query}\"",
 	"/search.notFound.description": "Wir konnten keine passenden Produkte für Deine Suche finden. Überprüfe die Rechtschreibung oder verwende allgemeinere Begriffe.",

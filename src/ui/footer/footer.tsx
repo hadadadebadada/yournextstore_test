@@ -15,17 +15,17 @@ const sections = [
 	{
 		header: "Support",
 		links: [
+			// {
+			// 	label: "Features",
+			// 	href: "https://yournextstore.com/#features",
+			// },
+			// {
+			// 	label: "Pricing",
+			// 	href: "https://yournextstore.com/#pricing",
+			// },
 			{
-				label: "Features",
-				href: "https://yournextstore.com/#features",
-			},
-			{
-				label: "Pricing",
-				href: "https://yournextstore.com/#pricing",
-			},
-			{
-				label: "Contact Us",
-				href: "mailto:hi@yournextstore.com",
+				label: "Kontaktiere uns",
+				href: "mailto:info@vertragsmarkt.de",
 			},
 		],
 	},
@@ -64,7 +64,7 @@ export async function Footer() {
 			<div className="container mt-8 flex max-w-7xl flex-col items-center justify-between gap-4 text-sm text-neutral-500 md:flex-row">
 				<div>
 					<p>© 2024 Vertragsmarkt</p>
-					<p>Delightful commerce for everyone</p>
+					<p>Mach mehr aus deinem Vertrag!</p>
 				</div>
 				<div className="flex items-center gap-4">
 					<YnsLink
