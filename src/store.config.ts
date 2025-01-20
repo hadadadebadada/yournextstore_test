@@ -6,8 +6,8 @@ import MobileImage from "@/images/mobile.png";
 
 export const config = {
 	categories: [
-		{ name: "Mobil", slug: "mobil", image: MobileImage },
-		{ name: "Fitness", slug: "fitness", image: FitnessImage },
+		{ name: "Gebrauchten Mobilvertrag Kaufen", slug: "kaufen", image: MobileImage },
+		{ name: "Mobilvertrag verkaufen", slug: "verkaufen", image: FitnessImage },
 	],
 
 	social: {

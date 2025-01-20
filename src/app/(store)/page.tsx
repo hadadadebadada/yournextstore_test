@@ -31,7 +31,8 @@ export default async function Home() {
 										bg-neutral-900 px-6 font-medium text-neutral-50 
 										transition-colors hover:bg-neutral-900/90 
 										focus:outline-none focus:ring-1 focus:ring-neutral-950"
-								href={t("hero.link")}
+								//href={t("hero.link")}
+								href="/category/mobil"
 							>
 								{t("hero.action")}
 							</YnsLink>
