@@ -31,7 +31,7 @@
 	"Global.deliveryEstimates.week": "{count, plural, =1 {# Woche} other {# Wochen}}",
 	"Global.actions.shopNow": "Jetzt einkaufen",
 	"/.hero.title": "Kaufe und verkaufe Mobilverträge aller Art",
-	"/.hero.description": "Möchtest du einen deiner Verträge verkaufen oder einen gebrauchten Vertrag kaufen?",
+	"/.hero.description": "Möchtest du einen deiner Verträge verkaufen oder einen laufenden Vertrag vergünstigt kaufen?",
 	"/.hero.action": "Jetzt einkaufen",
 	"/.hero.sell": "Jetzt verkaufen",
 
