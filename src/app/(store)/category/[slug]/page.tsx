@@ -19,10 +19,10 @@ export const generateMetadata = async (props: {
 		return notFound();
 	}
 
-	const t = await getTranslations("/category.metadata");
+	// const t = await getTranslations("/category.metadata");
 
 	return {
-		title: t("title", { categoryName: deslugify(params.slug) }),
+		title: params.slug,
 		alternates: { canonical: `${publicUrl}/category/${params.slug}` },
 	};
 };
