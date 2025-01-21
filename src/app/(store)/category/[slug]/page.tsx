@@ -40,7 +40,7 @@ export default async function CategoryPage(props: {
 		return notFound();
 	}
 
-	const t = await getTranslations("/category.page");
+	//const t = await getTranslations("/category.page");
 
 	return (
 		<main className="pb-8">
