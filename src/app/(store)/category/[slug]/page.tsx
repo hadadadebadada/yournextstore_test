@@ -1,5 +1,5 @@
 import { publicUrl } from "@/env.mjs";
-import { getTranslations } from "@/i18n/server";
+//import { getTranslations } from "@/i18n/server";
 import { deslugify } from "@/lib/utils";
 import { ProductList } from "@/ui/products/product-list";
 import * as Commerce from "commerce-kit";
