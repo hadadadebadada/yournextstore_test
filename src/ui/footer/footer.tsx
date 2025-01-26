@@ -32,11 +32,11 @@ const sections = [
 				href: "https://vertragsmarkt.de/agb",
 			},
 			{
-				label: "Datenschutzerklärung'",
-				href: "https://vertragsmarkt.de/agb",
+				label: "Datenschutzerklärung",
+				href: "https://vertragsmarkt.de/dse",
 			},
 			{
-				label: "Impressum'",
+				label: "Impressum",
 				href: "https://vertragsmarkt.de/impressum",
 			},
 		],
