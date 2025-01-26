@@ -42,14 +42,23 @@ export function CommerceGPT() {
 		return () => window.removeEventListener("keydown", handleEsc);
 	}, []);
 
-	const [isVisible, setIsVisible] = useState(() => {
+	const [isVisible, setIsVisible] = useState(true);
+
+	// Check localStorage only on the client side
+	useEffect(() => {
 		const savedVisibility = localStorage.getItem("cookieConsentVisible");
-		return savedVisibility === null ? true : JSON.parse(savedVisibility);
-	});
+		if (savedVisibility !== null) {
+			// Explicitly type the parsed value as a boolean
+			const isVisibleFromStorage = JSON.parse(savedVisibility) as boolean;
+			setIsVisible(isVisibleFromStorage);
+		}
+	}, []);
 
 	// Save the state to localStorage whenever it changes
 	useEffect(() => {
-		localStorage.setItem("cookieConsentVisible", JSON.stringify(isVisible));
+		if (typeof window !== "undefined") {
+			localStorage.setItem("cookieConsentVisible", JSON.stringify(isVisible));
+		}
 	}, [isVisible]);
 
 	const handleClose = () => {
