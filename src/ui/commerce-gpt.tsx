@@ -42,9 +42,42 @@ export function CommerceGPT() {
 		return () => window.removeEventListener("keydown", handleEsc);
 	}, []);
 
+	const [isVisible, setIsVisible] = useState(() => {
+		const savedVisibility = localStorage.getItem("cookieConsentVisible");
+		return savedVisibility === null ? true : JSON.parse(savedVisibility);
+	});
+
+	// Save the state to localStorage whenever it changes
+	useEffect(() => {
+		localStorage.setItem("cookieConsentVisible", JSON.stringify(isVisible));
+	}, [isVisible]);
+
+	const handleClose = () => {
+		setIsVisible(false);
+	};
+
+	if (!isVisible) return null;
+
 	return (
-		<div className="flex flex-col hidden">
-			<div className="bg-gradient-to-r from-orange-100 via-orange-200 to-red-300 px-4 py-3 text-indigo-900">
+		<div className="flex flex-col">
+			<div className="fixed inset-x-0 bottom-0 flex items-center justify-center bg-black bg-opacity-50">
+				<div className="w-full max-w-7xl mx-auto">
+					<div className="bg-gradient-to-r from-orange-100 via-orange-200 to-red-300 px-4 py-3 text-indigo-900 rounded-t-lg">
+						<div className="flex items-center justify-between gap-x-4">
+							<p className="text-sm font-medium">
+								Akzeptieren Sie Cookies, um Ihr Erlebnis zu verbessern? 🍪
+							</p>
+							<div className="flex items-center gap-x-4">
+								<Button onClick={handleClose}>Ja</Button>
+								<Button onClick={handleClose}>Nein</Button>
+								<Button onClick={handleClose}>Nur Essentielle 🍪</Button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div className="bg-gradient-to-r from-orange-100 via-orange-200 to-red-300 px-4 py-3 text-indigo-900 hidden">
 				<div className="flex items-center justify-between gap-x-4">
 					<div className="mx-auto flex max-w-7xl items-center justify-between gap-x-4">
 						<div className="flex items-center gap-x-4">

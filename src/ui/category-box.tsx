@@ -2,6 +2,7 @@ import { getTranslations } from "@/i18n/server";
 import { deslugify } from "@/lib/utils";
 import { YnsLink } from "@/ui/yns-link";
 import Image, { type ImageProps } from "next/image";
+
 export async function CategoryBox({
 	categorySlug,
 	src,
@@ -10,6 +11,7 @@ export async function CategoryBox({
 	src: ImageProps["src"];
 }) {
 	const t = await getTranslations("Global.actions");
+	const categoryName = deslugify(categorySlug);
 
 	return (
 		<YnsLink href={`/category/${categorySlug}`} className="group relative">
@@ -25,8 +27,8 @@ export async function CategoryBox({
 				/>
 			</div>
 			<div className="justify-end gap-2 px-4 py-2 text-neutral-600">
-				<h3 className="text-lg font-bold tracking-tight">{deslugify(categorySlug)}</h3>
-				<p>{t("shopNow")}</p>
+				<h3 className="text-lg font-bold tracking-tight">{categoryName}</h3>
+				<p>{categoryName === "Verkaufen" ? "Jetzt verkaufen" : t("shopNow")}</p>
 			</div>
 		</YnsLink>
 	);

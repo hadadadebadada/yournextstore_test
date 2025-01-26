@@ -32,7 +32,7 @@ export default async function Home() {
 										transition-colors hover:bg-neutral-900/90 
 										focus:outline-none focus:ring-1 focus:ring-neutral-950"
 								//href={t("hero.link")}
-								href="/category/mobil"
+								href="/category/kaufen"
 							>
 								{t("hero.action")}
 							</YnsLink>
@@ -42,7 +42,7 @@ export default async function Home() {
 										border border-black 
 										transition-colors hover:bg-neutral-50/90 
 										focus:outline-none focus:ring-1 focus:ring-neutral-950"
-								href="/category/sell"
+								href="/category/verkaufen"
 							>
 								Jetzt verkaufen
 							</YnsLink>
