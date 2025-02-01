@@ -3,8 +3,6 @@
 import { useEffect, useState } from "react";
 
 export default function AGBPage() {
-
-
 	const [isVisible, setIsVisible] = useState(true);
 
 	// Check localStorage only on the client side
@@ -29,7 +27,6 @@ export default function AGBPage() {
 		localStorage.clear();
 		alert("Alle Cookies wurden gelöscht.");
 	};
-
 
 	return (
 		<div className="min-h-screen bg-gray-50 py-8">
@@ -60,7 +57,9 @@ export default function AGBPage() {
 					</section>
 					<section className="mb-8">
 						<h2 className="text-xl font-semibold mb-4">§3 Nutzung des Portals</h2>
-						<p className="text-gray-700">Der Nutzer verpflichtet sich, das Portal gesetzeskonform zu verwenden.</p>
+						<p className="text-gray-700">
+							Der Nutzer verpflichtet sich, das Portal gesetzeskonform zu verwenden.
+						</p>
 					</section>
 
 					{/* Section: Nutzung des Portals */}
@@ -70,22 +69,39 @@ export default function AGBPage() {
 
 						<h3 className="text-lg font-semibold mb-2">4.1 Verpflichtung des Verkäufers</h3>
 						<p className="text-gray-700">
-							Der Verkäufer verpflichtet sich, den angebotenen Mobilfunkvertrag vollständig und rechtmäßig
-							an den Käufer zu übertragen. Er garantiert, dass keine offenen Forderungen bestehen, die die
+							Der Verkäufer verpflichtet sich, den angebotenen Mobilfunkvertrag vollständig und rechtmäßig an
+							den Käufer zu übertragen. Er garantiert, dass keine offenen Forderungen bestehen, die die
 							Vertragsübernahme verhindern könnten.
 						</p>
 
 						<h3 className="text-lg font-semibold mt-4 mb-2">4.2 Verpflichtung des Käufers</h3>
 						<p className="text-gray-700">
-							Der Käufer verpflichtet sich, den gekauften Mobilfunkvertrag gemäß den Bedingungen des ursprünglichen
-							Mobilfunkanbieters zu übernehmen. Er trägt sämtliche zukünftigen Zahlungsverpflichtungen und Gebühren.
+							Der Käufer verpflichtet sich, den gekauften Mobilfunkvertrag gemäß den Bedingungen des
+							ursprünglichen Mobilfunkanbieters zu übernehmen. Er trägt sämtliche zukünftigen
+							Zahlungsverpflichtungen und Gebühren.
 						</p>
 
 						<h3 className="text-lg font-semibold mt-4 mb-2">4.3 Rolle der Plattform</h3>
 						<p className="text-gray-700">
-							Die Plattform übernimmt die Abwicklung der Vertragsübernahme und stellt sicher, dass die Übertragung
-							durch den Mobilfunkanbieter bestätigt wird. Sie haftet jedoch nicht für eventuelle ausstehende Forderungen
-							oder Streitigkeiten zwischen Käufer und Verkäufer.
+							Die Plattform übernimmt die Abwicklung der Vertragsübernahme und stellt sicher, dass die
+							Übertragung durch den Mobilfunkanbieter bestätigt wird. Sie haftet jedoch nicht für eventuelle
+							ausstehende Forderungen oder Streitigkeiten zwischen Käufer und Verkäufer.
+						</p>
+
+						<h3 className="text-lg font-semibold mt-4 mb-2">4.4 Erlösverteilung bei Vertragsübernahme</h3>
+						<p className="text-gray-700">
+							Wenn ein Mobilfunkvertrag über die Plattform verkauft wird, erfolgt die Erlösverteilung wie
+							folgt:
+						</p>
+						<ul className="text-gray-700 list-disc ml-6 mt-2">
+							<li>50% des Verkaufserlöses gehen an den Verkäufer.</li>
+							<li>50% des Verkaufserlöses erhält die Plattform als Servicegebühr.</li>
+						</ul>
+						<p className="text-gray-700 mt-2">
+							Die Auszahlung an den Verkäufer erfolgt innerhalb von 14 Tagen nach erfolgreicher
+							Vertragsübernahme durch den Käufer. Die Plattform behält sich das Recht vor, die Zahlung zu
+							verzögern oder einzubehalten, falls Unstimmigkeiten oder offene Forderungen im Zusammenhang mit
+							dem Vertrag bestehen.
 						</p>
 					</section>
 
@@ -105,8 +121,8 @@ export default function AGBPage() {
 							§6 Rückbuchungen und Streitigkeiten bei PayPal- und Stripe-Zahlungen
 						</h2>
 						<p className="text-gray-700">
-							Im Falle von Rückbuchungen oder Streitigkeiten im Zusammenhang mit PayPal-/Stripe Zahlungen ist der
-							Nutzer verpflichtet, Vertragsmarkt unverzüglich zu informieren und alle erforderlichen
+							Im Falle von Rückbuchungen oder Streitigkeiten im Zusammenhang mit PayPal-/Stripe Zahlungen ist
+							der Nutzer verpflichtet, Vertragsmarkt unverzüglich zu informieren und alle erforderlichen
 							Informationen zur Klärung des Sachverhalts bereitzustellen. Vertragsmarkt wird sich bemühen, den
 							Sachverhalt gemeinsam mit dem Nutzer und PayPal zu klären. Sollte der Nutzer eine unberechtigte
 							Rückbuchung oder einen unberechtigten Einwand gegen eine Zahlung vorbringen, ist Vertragsmarkt
@@ -141,9 +157,8 @@ export default function AGBPage() {
 						</p>
 						<h3 className="text-lg font-semibold mt-4 mb-2">7.1 Verwendung von Cookies</h3>
 						<p className="text-gray-700">
-							Unsere Plattform verwendet Cookies, um die Nutzererfahrung zu verbessern und wichtige
-							Funktionen bereitzustellen. Durch die Nutzung der Plattform stimmen Sie der Verwendung von
-							Cookies zu.
+							Unsere Plattform verwendet Cookies, um die Nutzererfahrung zu verbessern und wichtige Funktionen
+							bereitzustellen. Durch die Nutzung der Plattform stimmen Sie der Verwendung von Cookies zu.
 						</p>
 						<h3 className="text-lg font-semibold mt-4 mb-2">7.2 Widerruf der Cookie-Einwilligung</h3>
 						<p className="text-gray-700">
