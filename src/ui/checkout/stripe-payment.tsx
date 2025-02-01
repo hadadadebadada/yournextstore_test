@@ -351,8 +351,18 @@ const PaymentForm = ({
 							checked={submitChecked}
 							onChange={(e) => setSubmitChecked(e.target.checked)}
 						/>
-						<span>Ich akzeptiere alle Nutzerbedingungen und AGB. </span>
+						<span>
+							Ich akzeptiere alle Nutzerbedingungen und
+							<a href="https://www.vertragsmarkt.de/agb" className="text-blue-500 underline"> AGB.</a>
+						</span>
+
 					</label>
+
+					<br></br>
+
+					<span className="text-sm text-gray-500">
+						* Bei Kauf eines gebrauchten Vertrages fallen Übernahmekosten i.H.v. 35€ an.
+					</span>
 
 					<Button
 						type="submit"

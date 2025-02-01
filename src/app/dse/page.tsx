@@ -16,7 +16,7 @@ export default function DSEPage() {
 							die:
 						</p>
 						<p className="text-gray-700">
-							Vertragsmarkt UG Einzelunternehmen
+							Vertragsmarkt UG
 							<br />
 							Gustav-Adolf-Straße 7
 							<br />
@@ -31,7 +31,7 @@ export default function DSEPage() {
 						<h2 className="text-xl font-semibold mb-4">II. Name und Anschrift des Datenschutzbeauftragten</h2>
 						<p className="text-gray-700">Der Datenschutzbeauftragte der Vertragsmarkt ist:</p>
 						<p className="text-gray-700">
-							Vertragsmarkt Einzelunternehmen
+							Vertragsmarkt UG
 							<br />
 							Gustav-Adolf-Straße 7
 							<br />
@@ -210,7 +210,7 @@ export default function DSEPage() {
 							</a>
 							.
 						</p>
-						<p className="text-gray-700">
+						{/* <p className="text-gray-700">
 							Alternativ zum Browser-Plugin oder innerhalb von Browsern auf mobilen Geräten können Sie auf den
 							folgenden Link klicken, um ein Opt-Out-Cookie zu setzen, der die Erfassung durch Google
 							Analytics innerhalb dieser Website zukünftig verhindert (dieses Opt-Out-Cookie funktioniert nur
@@ -220,7 +220,7 @@ export default function DSEPage() {
 								Google Analytics deaktivieren
 							</a>
 							.
-						</p>
+						</p> */}
 					</section>
 
 					{/* Section: VII. Registrierung */}
