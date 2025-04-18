@@ -379,9 +379,9 @@ const PaymentForm = ({
 										Allgemeinen Geschäftsbedingungen der Vertragsmarkt UG (haftungsbeschränkt)
 									</a>
 								</li>
-								{includesKaufen && (
+								{includesVerkaufen && (
 									<>
-										<li>Hiermit verpflichte ich mich, die ausgewählten Verträge, welche die Vertragsmarkt UG (haftungsbeschränkt) an mich übergibt, zu übernehmen.</li>
+										<li>Hiermit verpflichte ich mich, die ausgewählten Verträge, an die Vertragsmarkt UG (haftungsbeschränkt) zu übergeben.</li>
 									</>
 								)}
 
