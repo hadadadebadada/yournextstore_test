@@ -40,7 +40,7 @@ export const StripePayment = ({
 	allProductsDigital: boolean;
 	locale: string;
 	providers: string[];
-	metadataList: Record<string, any>[];
+	metadataList: Record<string, unknown>[];
 }) => {
 	return (
 		<PaymentForm
@@ -379,6 +379,11 @@ const PaymentForm = ({
 										Allgemeinen Geschäftsbedingungen der Vertragsmarkt UG (haftungsbeschränkt)
 									</a>
 								</li>
+								{includesKaufen && (
+									<>
+										<li>Hiermit verpflichte ich mich, die ausgewählten Verträge, welche die Vertragsmarkt UG (haftungsbeschränkt) an mich übergibt, zu übernehmen.</li>
+									</>
+								)}
 
 								{includesTelefonicaProduct && includesKaufen && (
 									<>
