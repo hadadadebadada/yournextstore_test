@@ -32,11 +32,15 @@ export const StripePayment = ({
 	shippingRates,
 	allProductsDigital,
 	locale,
+	providers,
+	metadataList,
 }: {
 	shippingRateId?: string | null;
 	shippingRates: Commerce.MappedShippingRate[];
 	allProductsDigital: boolean;
 	locale: string;
+	providers: string[];
+	metadataList: Record<string, any>[];
 }) => {
 	return (
 		<PaymentForm
@@ -44,6 +48,8 @@ export const StripePayment = ({
 			shippingRates={shippingRates}
 			cartShippingRateId={shippingRateId ?? null}
 			allProductsDigital={allProductsDigital}
+			providers={providers}
+			metadataList={metadataList}
 		/>
 	);
 };
@@ -53,12 +59,25 @@ const PaymentForm = ({
 	cartShippingRateId,
 	allProductsDigital,
 	locale,
+	providers,
+	metadataList,
 }: {
 	shippingRates: Commerce.MappedShippingRate[];
 	cartShippingRateId: string | null;
 	allProductsDigital: boolean;
 	locale: string;
+	providers: string[];
+	metadataList: Record<string, any>[];
 }) => {
+
+	const includesTelefonicaProduct = providers.includes("O2");
+	const includesVodafoneProduct = providers.includes("Vodafone");
+	const includesTelekomProduct = providers.includes("Telekom");
+
+
+	const includesVerkaufen = metadataList.some((meta) => meta?.category === "verkaufen");
+	const includesKaufen = metadataList.some((meta) => meta?.category === "kaufen");
+
 	const t = useTranslations("/cart.page.stripePayment");
 
 	const ft = useTranslations("/cart.page.formErrors");
@@ -258,7 +277,7 @@ const PaymentForm = ({
 					setBillingAddressValues({
 						name: e.value.name,
 						city: e.value.address.city,
-						country: e.value.address.country,
+						country: "Germany",
 						line1: e.value.address.line1,
 						line2: e.value.address.line2 ?? null,
 						postalCode: e.value.address.postal_code,
@@ -345,24 +364,125 @@ const PaymentForm = ({
 			)}
 			{readyToRender && (
 				<div>
-					<label className="inline-flex items-center space-x-2">
+					<label className="inline-flex items-start space-x-2">
 						<input
 							type="checkbox"
 							checked={submitChecked}
 							onChange={(e) => setSubmitChecked(e.target.checked)}
+							className="mt-1"
 						/>
-						<span>
-							Ich akzeptiere alle Nutzerbedingungen und
-							<a href="https://www.vertragsmarkt.de/agb" className="text-blue-500 underline"> AGB.</a>
-						</span>
+						<span className="text-sm">
+							Hiermit erkläre ich, dass ich<br />
+							<ul className="list-disc pl-5">
+								<li>
+									die <a href="https://www.vertragsmarkt.de/agb" className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">
+										Allgemeinen Geschäftsbedingungen der Vertragsmarkt UG (haftungsbeschränkt)
+									</a>
+								</li>
 
+								{includesTelefonicaProduct && includesKaufen && (
+									<>
+										<li>
+											die <a
+												href="https://www.o2online.de/assets/blobs/agb/agb-postpaid/"
+												className="text-blue-500 underline"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												Allgemeinen Geschäftsbedingungen der Telefónica Germany GmbH & Co. OHG
+											</a>
+										</li>
+										<li>
+											Weitere Informationen finde ich{" "}
+											<a
+												href="https://www.o2online.de/assets/blobs/tarife/preisliste-mobilfunk-postpaid/"
+												className="text-blue-500 underline"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												hier im Produktinformationsblatt
+											</a>
+											.
+										</li>
+									</>
+								)}
+
+								{includesVodafoneProduct && includesKaufen && (
+									<>
+										<li>
+											die <a
+												href="https://www.vodafone.de/media/downloads/pdf/900271_KA_21677_screen.pdf"
+												className="text-blue-500 underline"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												Allgemeinen Geschäftsbedingungen der Vodafone GmbH
+											</a>
+										</li>
+										<li>
+											Weitere Informationen finde ich{" "}
+											<a
+												href="https://www.vodafone.de/business/media/vodafone-gesamtpreisliste-mobilfunk.pdf"
+												className="text-blue-500 underline"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												hier im Produktinformationsblatt
+											</a>
+											.
+										</li>
+									</>
+								)}
+
+								{includesTelekomProduct && includesKaufen && (
+									<>
+										<li>
+											die <a
+												href="https://www.telekom.de/dlp/agb/pdf/53750.pdf"
+												className="text-blue-500 underline"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												Allgemeinen Geschäftsbedingungen der Telekom Deutschland GmbH
+											</a>
+										</li>
+										<li>
+											Weitere Informationen finde ich{" "}
+											<a
+												href="https://www.telekom.com/resource/blob/1008608/cda349698e4d5384880f9fbc30d226a9/dl-220608-tarifuebersicht-magentamobil-data.pdf"
+												className="text-blue-500 underline"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												hier im Produktinformationsblatt
+											</a>
+											.
+										</li>
+									</>
+								)}
+
+
+
+								<li>
+									die <a
+										href="https://www.vertragsmarkt.de/dse"
+										className="text-blue-500 underline"
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										Informationen zum Datenschutz
+									</a>
+								</li>
+							</ul>
+							Ich habe die{" "}
+							<a href="/widerruf" className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">
+								Widerrufsbelehrung / das Muster-Widerrufsformular
+							</a>{" "}
+							zur Kenntnis genommen.
+						</span>
 					</label>
 
 					<br></br>
-
-					<span className="text-sm text-gray-500">
-						* Bei Kauf eines gebrauchten Vertrages fallen Übernahmekosten i.H.v. 35€ an.
-					</span>
 
 					<Button
 						type="submit"

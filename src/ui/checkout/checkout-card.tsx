@@ -21,11 +21,15 @@ export const paymentMethods = {
 	p24,
 	visa,
 };
-
 export const CheckoutCard = async ({ cart }: { cart: Commerce.Cart }) => {
 	const shippingRates = await Commerce.shippingBrowse();
 	const t = await getTranslations("/cart.page");
 	const locale = await getLocale();
+
+	// ✅ Extract providers and metadata
+	const providers = cart.lines.map((line) => line.product.name.split(" ")[0]);
+	const metadataList = cart.lines.map((line) => line.product.metadata);
+
 
 	return (
 		<section className="max-w-md pb-12">
@@ -38,7 +42,11 @@ export const CheckoutCard = async ({ cart }: { cart: Commerce.Cart }) => {
 					isDefined(line.product.shippable) ? !line.product.shippable : false,
 				)}
 				locale={locale}
+				//@ts-ignore
+				providers={providers}
+				metadataList={metadataList}
 			/>
 		</section>
 	);
 };
+

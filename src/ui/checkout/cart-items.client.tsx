@@ -80,7 +80,7 @@ export const CartItemQuantity = ({
 				</span>
 			</Button>
 			<span className="inline-block min-w-8 px-1 text-center tabular-nums">{quantity}</span>
-			<Button
+			{/* <Button
 				variant="ghost"
 				size="sm"
 				type="submit"
@@ -90,7 +90,7 @@ export const CartItemQuantity = ({
 				<span className="flex h-4 w-4 items-center justify-center rounded-full bg-neutral-100 pb-0.5 font-bold leading-none text-black transition-colors group-hover:bg-neutral-500 group-hover:text-white">
 					+
 				</span>
-			</Button>
+			</Button> */}
 		</span>
 	);
 };

@@ -20,9 +20,9 @@ export const Nav = async () => {
 					<SearchNav />
 				</div>
 				<CartSummaryNav />
-				<YnsLink href="/login">
+				{/* <YnsLink href="/login">
 					<UserIcon className="hover:text-neutral-500" />
-				</YnsLink>
+				</YnsLink> */}
 			</div>
 		</header>
 	);

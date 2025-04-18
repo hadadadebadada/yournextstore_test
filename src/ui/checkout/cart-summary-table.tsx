@@ -21,25 +21,24 @@ import { useOptimistic } from "react";
 export const CartSummaryTable = ({ cart, locale }: { cart: Commerce.Cart; locale: string }) => {
 	const t = useTranslations("/cart.page.summaryTable");
 
-	const [optimisticCart, dispatchOptimisticCartAction] = useOptimistic(
+	const [optimisticCart] = useOptimistic(
 		cart,
-		(prevCart, action: { productId: string; action: "INCREASE" | "DECREASE" }) => {
-			const modifier = action.action === "INCREASE" ? 1 : -1;
-
-			return {
-				...prevCart,
-				lines: prevCart.lines.map((line) => {
-					if (line.product.id === action.productId) {
-						return { ...line, quantity: line.quantity + modifier };
-					}
-					return line;
-				}),
-			};
-		},
+		(prevCart) => ({
+			...prevCart,
+			lines: prevCart.lines.map((line) => ({
+				...line,
+				quantity: 1,
+			})),
+		}),
 	);
 
 	const currency = optimisticCart.lines[0]!.product.default_price.currency;
-	const total = calculateCartTotalPossiblyWithTax(optimisticCart);
+	const normalizedCart = {
+		...optimisticCart,
+		lines: optimisticCart.lines.map((line) => ({ ...line, quantity: 1 })),
+	};
+
+	const total = calculateCartTotalPossiblyWithTax(normalizedCart);
 
 	return (
 		<form>
@@ -95,13 +94,17 @@ export const CartSummaryTable = ({ cart, locale }: { cart: Commerce.Cart; locale
 										cartId={cart.cart.id}
 										quantity={line.quantity}
 										productId={line.product.id}
-										onChange={dispatchOptimisticCartAction}
+										onChange={({ productId, action }) => {
+											console.log("Quantity changed:", productId, action);
+										}}
 									/>
+
 								</TableCell>
+
 								<TableCell className="text-right">
 									<CartItemLineTotal
 										currency={line.product.default_price.currency}
-										quantity={line.quantity}
+										quantity={1}
 										unitAmount={line.product.default_price.unit_amount ?? 0}
 										productId={line.product.id}
 										locale={locale}
@@ -131,7 +134,7 @@ export const CartSummaryTable = ({ cart, locale }: { cart: Commerce.Cart; locale
 					)}
 				</TableBody>
 				<TableFooter>
-					{optimisticCart.cart.taxBreakdown.map((tax, idx) => (
+					{normalizedCart.cart.taxBreakdown.map((tax, idx) => (
 						<TableRow key={idx + tax.taxAmount} className="font-normal">
 							<TableCell className="hidden w-24 sm:table-cell"></TableCell>
 							<TableCell colSpan={3} className="text-right">

@@ -21,7 +21,7 @@ export default async function CartLayout({ children }: { children: ReactNode }) 
 			clientSecret={cart.cart.client_secret}
 			publishableKey={publishableKey}
 			stripeAccount={stripeAccount}
-			locale={locale}
+			locale="de"
 		>
 			<div className="min-h-[calc(100dvh-7rem)] xl:grid xl:grid-cols-12 xl:gap-x-8">
 				<div className="my-8 xl:col-span-7">

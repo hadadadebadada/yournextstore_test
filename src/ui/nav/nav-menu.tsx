@@ -35,6 +35,7 @@ export const NavMenu = () => {
 				</ul>
 			</div>
 			<div className="sm:hidden flex items-center">
+
 				<NavMobileMenu>
 					<ul className="flex pb-8 flex-col items-stretch justify-center gap-x-1">
 						{links.map((link) => (
